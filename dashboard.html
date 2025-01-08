@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Missing Person Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">Missing Person Detection</div>
+                <div class="space-x-4">
+                    <a href="index.html" class="hover:text-blue-200">Home</a>
+                    <a href="dashboard.html" class="hover:text-blue-200">Dashboard</a>
+                    <a href="about.html" class="hover:text-blue-200">About</a>
+                    <a href="contact.html" class="hover:text-blue-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Grid -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Stats Cards -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-semibold">Active Cases</h3>
+                <div class="flex items-center mt-2">
+                    <div class="text-3xl font-bold text-blue-600">248</div>
+                    <span class="text-green-500 text-sm ml-2">+12%</span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-semibold">Identified Today</h3>
+                <div class="flex items-center mt-2">
+                    <div class="text-3xl font-bold text-green-600">15</div>
+                    <span class="text-green-500 text-sm ml-2">+5</span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-semibold">Active Cameras</h3>
+                <div class="flex items-center mt-2">
+                    <div class="text-3xl font-bold text-purple-600">42</div>
+                    <span class="text-green-500 text-sm ml-2">All Online</span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-gray-500 text-sm font-semibold">Success Rate</h3>
+                <div class="flex items-center mt-2">
+                    <div class="text-3xl font-bold text-yellow-600">89%</div>
+                    <span class="text-green-500 text-sm ml-2">+2%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <!-- Live Feed Section -->
+            <div class="md:col-span-2">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold mb-4">Live Camera Feeds</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-200 rounded-lg aspect-video relative">
+                            <div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Camera 1 - Main Gate</div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg aspect-video relative">
+                            <div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Camera 2 - Station</div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg aspect-video relative">
+                            <div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Camera 3 - Market</div>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg aspect-video relative">
+                            <div class="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Camera 4 - Bus Stop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Alerts -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Recent Alerts</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 bg-red-50 rounded-lg">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
+                        <div>
+                            <h3 class="font-semibold">Potential Match Found</h3>
+                            <p class="text-sm text-gray-600">Camera 2 - Station</p>
+                            <p class="text-xs text-gray-500">2 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-lg">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
+                        <div>
+                            <h3 class="font-semibold">Possible Match</h3>
+                            <p class="text-sm text-gray-600">Camera 1 - Main Gate</p>
+                            <p class="text-xs text-gray-500">15 minutes ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <!-- Search Section -->
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Search Database</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <input type="text" placeholder="Name" class="p-2 border rounded-lg">
+                    <input type="text" placeholder="Aadhaar Number" class="p-2 border rounded-lg">
+                    <input type="text" placeholder="Case ID" class="p-2 border rounded-lg">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <select class="p-2 border rounded-lg">
+                        <option>Select Age Range</option>
+                        <option>0-18 years</option>
+                        <option>19-30 years</option>
+                        <option>31-50 years</option>
+                        <option>51+ years</option>
+                    </select>
+                    <select class="p-2 border rounded-lg">
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <select class="p-2 border rounded-lg">
+                        <option>Select Location</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+                        <option>Bangalore</option>
+                    </select>
+                </div>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Search</button>
+            </div>
+
+            <!-- Analytics Chart -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Identification Trends</h2>
+                <canvas id="trendsChart" class="w-full"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Cases Table -->
+        <div class="mt-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Recent Cases</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Case ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Age</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">#12345</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">John Doe</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">25</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">Mumbai</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600">View Details</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">#12346</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">Jane Smith</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">32</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">Delhi</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600">View Details</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Component -->
+    <div id="notification" class="fixed bottom-4 right-4 max-w-md"></div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-8 max-w-lg w-full mx-4">
+            <h2 class="text-2xl font-bold mb-4">Alert: Potential Match Found</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <h3 class="font-semibold mb-2">Database Record</h3>
+                    <div class="bg-gray-200 rounded-lg aspect-square"></div>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Camera Feed</h3>
+                    <div class="bg-gray-200 rounded-lg aspect-square"></div>
+                </div>
+            </div>
+            <div class="space-y-2 mb-4">
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Age:</strong> 25</p>
+                <p><strong>Location:</strong> Camera 2 - Station</p>
+                <p><strong>Match Confidence:</strong> 89%</p>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <button class="px-4 py-2 border rounded-lg" onclick="closeAlertModal()">Dismiss</button>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg">Take Action</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
